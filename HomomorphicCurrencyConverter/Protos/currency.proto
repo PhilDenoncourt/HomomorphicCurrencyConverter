@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option csharp_namespace = "HomomorphicCurrencyConverter.Protos";
+
+package currency;
+
+service ForeignCurrencyConvertorService {
+  rpc GetEncryptionParameters (EncryptionParametersRequest) returns (EncryptionParametersResponse);
+  rpc ConvertUsdToCad (ConvertRequest) returns (ConvertResponse);
+}
+
+message ConvertRequest {
+  bytes parmStream=1;
+  bytes dataStream=2;
+}
+
+message ConvertResponse {
+  bytes dataStream=1;
+}
+
+message EncryptionParametersRequest {
+
+}
+message EncryptionParametersResponse {
+	bytes parmStream=1;
+}
